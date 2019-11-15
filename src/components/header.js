@@ -1,42 +1,82 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+//import { graphql } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+const Header = (props) => {
+
+  const bio = props.bio;
+	const username = props.username;
+	const src = props.avatar;
+
+  return(
+    <header
+    style={ {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+      >
+      <div
+			style={ {
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				flexWrap: 'wrap',
+        margin: '2em 2em',
+			} }
+		>
+			<span
+				style={ {
+					flexBasis: '120px',
+          height: '96px',
+				} }
+			>
+				<img
+					src={ src }
+					alt={ `Psycho Dude` }
+					style={ {
+						marginBottom: 0,
+						borderRadius: "50%",
+						width: '96px',
+					} }
+				/>
+			</span>
+			<span
+				style={ {
+					flexBasis: '500px',
+					flexGrow: 1,
+				} }
+			>
+				<Link
+					to='/'
+					activeStyle={ {
+        				textDecoration: 'none',
+        				color: '#000000'	
+      				} }
+				>
+					<h3
+						dangerouslySetInnerHTML={ { __html: ( username ) } }
+						style={ { marginBottom: '0.2em' } }
+					/>
+				</Link>
+				<p 
+					style={ { marginBottom: 0 } }
+					dangerouslySetInnerHTML={ { __html: ( bio ) } }
+				/>
+			</span>
+		</div>
+
+
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
+Header.propTypes = {
+    src: PropTypes.string,
+    username: PropTypes.string,
+    bio: PropTypes.string,
 }
 
 export default Header
+

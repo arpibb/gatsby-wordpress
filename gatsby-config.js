@@ -1,3 +1,9 @@
+//This part is necessary to get .env file content into process.env in Gatsby
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+//Normal config declarations
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -6,39 +12,21 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
+    
     {
 			resolve: 'gatsby-source-wordpress',
 			options: {
-				baseUrl: 'YOUR SITE URL',
+				baseUrl: process.env.BASE_URL,
 				protocol: 'https',
 				hostingWPCOM: true,
 				useACF: false,
 				auth: {
-					wpcom_app_clientSecret: 'CLIENT SECRET',
-					wpcom_app_clientId: 'CLIENT ID',
-					wpcom_user: 'USERNAME',
-					wpcom_pass: 'PASSWORD',
+					wpcom_app_clientSecret: process.env.CLIENT_SECRET,
+					wpcom_app_clientId: process.env.CLIENT_ID,
+					wpcom_user: process.env.WPCOM_USER,
+					wpcom_pass: process.env.WPCOM_PASS,
 				},
 				verboseOutput: false,
 			},
