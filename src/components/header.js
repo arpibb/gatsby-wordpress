@@ -5,16 +5,18 @@ import React from "react"
 
 const Header = (props) => {
 
-  const bio = props.bio;
 	const username = props.username;
 	const src = props.avatar;
+	const bio = props.bio;
 
   return(
     <header
     style={ {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+	  justifyContent: 'center',
+	  maxWidth: "800px",
+	  margin: "0 auto",
     }}
       >
       <div
@@ -22,14 +24,14 @@ const Header = (props) => {
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				flexWrap: 'wrap',
+				//flexWrap: 'wrap',
         margin: '2em 2em',
 			} }
 		>
 			<span
 				style={ {
 					flexBasis: '120px',
-          height: '96px',
+          			height: '96px',
 				} }
 			>
 				<img
@@ -38,7 +40,7 @@ const Header = (props) => {
 					style={ {
 						marginBottom: 0,
 						borderRadius: "50%",
-						width: '96px',
+						marginRight: "35px",
 					} }
 				/>
 			</span>

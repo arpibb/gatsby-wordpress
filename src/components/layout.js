@@ -7,28 +7,17 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+//import { graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children } ) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout = (props) => {
   
-
   return (
     <>
     <div>
         <Header 
-        siteTitle={data.site.siteMetadata.title}
         bio = {props.bio}
         username = {props.username}
         avatar = {props.avatar}
@@ -42,7 +31,7 @@ const Layout = ({ children } ) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+        <main>{props.children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
@@ -59,5 +48,4 @@ Layout.propTypes = {
 }
 
 export default Layout
-
 
