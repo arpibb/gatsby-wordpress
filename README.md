@@ -1,10 +1,15 @@
 Gatsby based instagram "clone" page with Wordpress as Headless CMS.
 
-What I could get out of this small project:
+I was following the instructions of this tutorial until I realized that it is not complete, so I finished it up by myself:
+https://jeremey.blog/gatsby-photo/
+
+What I learnt from this small project:
 - graphql queries
 - environment variable handling (deployment & production)
 - passing properties from pages to components
 - using createPages
+- deploying to netlify
+- webhooks 
 
 deployed with Netlify: https://psychedelicdudesfakeinstapage.netlify.com/
 
