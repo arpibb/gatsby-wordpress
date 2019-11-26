@@ -5,7 +5,7 @@ https://jeremey.blog/gatsby-photo/
 
 What I learnt from this small project:
 - graphql queries
-- environment variable handling (deployment & production)
+- environment variable handling (development & production)
 - passing properties from pages to components
 - using createPages
 - deploying to netlify
